@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "emilio-mini-me"
+  },
+  "targets": {
+    "emilio-mini-me": {
+      "hosting": {
+        "emilio-mini-me": [
+          "emilio-mini-me"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<a class="uk-button uk-button-default uk-margin-large-top uk-align-center uk-animation-fade" [attr.uk-tooltip]="hover" *ngIf="loggedIn" (click)="logout()">Logout</a>
+
+<span *ngIf="!loggedIn">
+<a class="uk-button uk-button-default uk-margin-large-top uk-align-center uk-animation-fade" *ngIf="!open" (click)="openLogin()">Login</a>
+
+<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-bottom" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'" *ngIf="open">
+  <fieldset class="uk-fieldset">
+    <div class="uk-margin">
+      <div class="uk-inline uk-width">
+        <span class="uk-form-icon" [attr.uk-icon]="'icon: user'"></span>
+        <input class="uk-input" [class.uk-form-danger]="loginFailed" type="text" placeholder="Mail" (keyup)="onKeyEmail($event)">
+      </div>
+    </div>
+    <div class="uk-margin">
+      <div class="uk-inline uk-width">
+        <span class="uk-form-icon" [attr.uk-icon]="'icon: lock'"></span>
+        <input class="uk-input" [class.uk-form-danger]="loginFailed" type="password" placeholder="Password" (keyup)="onKeyPassword($event)">
+      </div>
+    </div>
+    <button class="uk-button uk-button-default uk-align-right uk-margin-remove-bottom uk-width-small" type="button" (click)="closeLogin()">Close</button>
+    <button class="uk-button uk-button-primary uk-margin-remove-bottom uk-width-small" type="button" (click)="login()">Login</button>
+  </fieldset>
+</div>
+</span>

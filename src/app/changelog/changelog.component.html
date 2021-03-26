@@ -1,0 +1,53 @@
+<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-bottom" *ngIf="auth.loggedIn()" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'">
+  <fieldset class="uk-fieldset">
+    <input type="text" class="uk-input uk-width-5-6 uk-margin-bottom" placeholder="Release title (v0.0.0)" [attr.disabled]="!editable ? '' : null" [value]="editTitle">
+    <select class="uk-select uk-width-1-6 uk-margin-bottom" (change)="versionSelect($event)" [selectedIndex]="editVersion">
+      <option>New</option>
+      <option *ngFor="let changelog of changelogs">{{changelog.title}}</option>
+    </select>
+
+    <input type="date" class="uk-input uk-width uk-margin-bottom" [attr.value]="editDate | date: 'yyyy-MM-dd'" (change)="saveDate($event)">
+
+    <span class="uk-label uk-label-success uk-width uk-flex-none uk-margin-small-bottom">Added</span>
+    <textarea class="uk-textarea uk-width uk-margin-bottom" style="resize: none" placeholder="Features added (one per line)" [value]="editFeaturesAdded" [rows]="editFeaturesAddedSize" (keyup)="autoSizeAdded($event)"></textarea>
+
+    <span class="uk-label uk-width uk-flex-none uk-margin-small-bottom">Changed</span>
+    <textarea class="uk-textarea uk-width uk-margin-bottom" style="resize: none" placeholder="Features changed (one per line)" [value]="editFeaturesChanged" [rows]="editFeaturesChangedSize" (keyup)="autoSizeChanged($event)"></textarea>
+
+    <span class="uk-label uk-label-danger uk-width uk-flex-none uk-margin-small-bottom">Fixed</span>
+    <textarea class="uk-textarea uk-width uk-margin-bottom" style="resize: none" placeholder="Features fixed (one per line)" [value]="editFeaturesFixed" [rows]="editFeaturesFixedSize" (keyup)="autoSizeFixed($event)"></textarea>
+
+    <button class="uk-button uk-button-default uk-align-right uk-margin-remove-bottom uk-width-small" type="button" (click)="reset()">Reset</button>
+    <button class="uk-button uk-button-primary uk-margin-remove-bottom uk-width-small" type="button" (click)="confirm()">{{editConfirm}}</button>
+  </fieldset>
+</div>
+
+<div class="uk-card uk-card-default uk-card-hover uk-margin-bottom" *ngFor="let changelog of changelogs" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'" [id]="changelog.title">
+  <div class="uk-card-header">
+    <div class="uk-card-badge uk-label">{{changelog.date.toDate() | date: 'dd/MM/yyyy'}}</div>
+    <h1 class="uk-heading-small">{{changelog.title}}</h1>
+  </div>
+  <div class="uk-card-body">
+    <ul class="uk-list">
+      <li class="uk-flex" *ngFor="let changes of changelog.added">
+        <span class="uk-label uk-label-success uk-width-1-6 uk-text-center uk-flex-none uk-visible@s">Added</span>
+        <span class="uk-label uk-label-success uk-width-1-6 uk-text-center uk-flex-none uk-hidden@s uk-padding-remove">Add</span>
+        <div class="uk-margin-left">{{changes}}</div>
+      </li>
+    </ul>
+    <ul class="uk-list">
+      <li class="uk-flex" *ngFor="let changes of changelog.changed">
+        <span class="uk-label uk-width-1-6 uk-text-center uk-flex-none uk-visible@s">Updated</span>
+        <span class="uk-label uk-width-1-6 uk-text-center uk-flex-none uk-hidden@s uk-padding-remove">Update</span>
+        <div class="uk-margin-left">{{changes}}</div>
+      </li>
+    </ul>
+    <ul class="uk-list">
+      <li class="uk-flex" *ngFor="let changes of changelog.fixed">
+        <span class="uk-label uk-label-danger uk-width-1-6 uk-text-center uk-flex-none uk-visible@s">Fixed</span>
+        <span class="uk-label uk-label-danger uk-width-1-6 uk-text-center uk-flex-none uk-hidden@s uk-padding-remove">Fix</span>
+        <div class="uk-margin-left">{{changes}}</div>
+      </li>
+    </ul>
+  </div>
+</div>

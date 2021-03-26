@@ -1,0 +1,9 @@
+<div *ngFor="let col of accounts" class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-bottom" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'">
+  <h3 class="uk-heading-line uk-text-primary" style="user-select: none !important;"><span>{{col.title}}</span></h3>
+  <ul class="uk-list">
+    <li class="uk-flex" *ngFor="let acc of col.accounts">
+      <span class="uk-margin-small-right uk-icon" [attr.uk-icon]="acc.icon"></span>
+      <a class="uk-link-muted" href="{{acc.link}}">{{acc.title}} ({{acc.nickname}})</a>
+    </li>
+  </ul>
+</div>

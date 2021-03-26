@@ -116,6 +116,10 @@
               "devServerTarget": "emilio-mini-me:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

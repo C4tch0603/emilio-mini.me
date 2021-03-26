@@ -1,0 +1,8 @@
+<div class="uk-card uk-card-default uk-card-hover uk-card-large uk-card-body uk-margin-bottom" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'" *ngFor="let project of projects" (click)="redirect(project.link)">
+  <div class="uk-card-badge uk-label uk-label-success">{{project.label}}</div>
+  <h3 class="uk-card-title">{{project.title}}</h3>
+  <span class="uk-badge uk-padding-small uk-margin-small-right" *ngFor="let badge of project.badge">{{badge}}</span>
+  <p *ngFor="let text of project.text">{{text}}</p>
+  <hr>
+  <span class="uk-label" *ngFor="let tags of project.tags">{{tags}}</span>
+</div>
