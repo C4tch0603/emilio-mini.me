@@ -79,7 +79,10 @@ export class ChangelogComponent implements OnInit {
 
   saveDate(event): void {
     this.editDate = new Date(event.target.value);
-    console.log(this.editDate);
+  }
+
+  saveTitle(event): void {
+    this.editTitle = event.target.value;
   }
 
   autoSizeAdded(event): void {

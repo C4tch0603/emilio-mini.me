@@ -1,6 +1,6 @@
 <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-bottom" *ngIf="auth.loggedIn()" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'">
   <fieldset class="uk-fieldset">
-    <input type="text" class="uk-input uk-width-5-6 uk-margin-bottom" placeholder="Release title (v0.0.0)" [attr.disabled]="!editable ? '' : null" [value]="editTitle">
+    <input type="text" class="uk-input uk-width-5-6 uk-margin-bottom" placeholder="Release title (v0.0.0)" [attr.disabled]="!editable ? '' : null" [value]="editTitle" (keyup)="saveTitle($event)">
     <select class="uk-select uk-width-1-6 uk-margin-bottom" (change)="versionSelect($event)" [selectedIndex]="editVersion">
       <option>New</option>
       <option *ngFor="let changelog of changelogs">{{changelog.title}}</option>
@@ -30,22 +30,19 @@
   <div class="uk-card-body">
     <ul class="uk-list">
       <li class="uk-flex" *ngFor="let changes of changelog.added">
-        <span class="uk-label uk-label-success uk-width-1-6 uk-text-center uk-flex-none uk-visible@s">Added</span>
-        <span class="uk-label uk-label-success uk-width-1-6 uk-text-center uk-flex-none uk-hidden@s uk-padding-remove">Add</span>
+        <span class="uk-label uk-label-success uk-width-1-6 uk-text-center uk-flex-none uk-margin-auto-bottom uk-padding-remove">Added</span>
         <div class="uk-margin-left">{{changes}}</div>
       </li>
     </ul>
     <ul class="uk-list">
       <li class="uk-flex" *ngFor="let changes of changelog.changed">
-        <span class="uk-label uk-width-1-6 uk-text-center uk-flex-none uk-visible@s">Updated</span>
-        <span class="uk-label uk-width-1-6 uk-text-center uk-flex-none uk-hidden@s uk-padding-remove">Update</span>
+        <span class="uk-label uk-width-1-6 uk-text-center uk-flex-none uk-margin-auto-bottom uk-padding-remove">Updated</span>
         <div class="uk-margin-left">{{changes}}</div>
       </li>
     </ul>
     <ul class="uk-list">
       <li class="uk-flex" *ngFor="let changes of changelog.fixed">
-        <span class="uk-label uk-label-danger uk-width-1-6 uk-text-center uk-flex-none uk-visible@s">Fixed</span>
-        <span class="uk-label uk-label-danger uk-width-1-6 uk-text-center uk-flex-none uk-hidden@s uk-padding-remove">Fix</span>
+        <span class="uk-label uk-label-danger uk-width-1-6 uk-text-center uk-flex-none uk-margin-auto-bottom uk-padding-remove">Fixed</span>
         <div class="uk-margin-left">{{changes}}</div>
       </li>
     </ul>

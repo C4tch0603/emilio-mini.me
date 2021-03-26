@@ -2,3 +2,6 @@
 .uk-label {
   user-select: none;
 }
+.uk-badge {
+  user-select: none;
+}
