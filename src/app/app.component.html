@@ -1,18 +1,12 @@
-<app-title-image [index]="selectedTab"></app-title-image>
+<app-title-image [selected]="this.router.url"></app-title-image>
 
 <div id="content-container" class="uk-container uk-container-xsmall uk-margin-large-bottom">
   <ul class="uk-breadcrumb uk-margin-bottom">
-    <li><a [class.uk-button-text]="selectedTab !== 0" [class.uk-text-primary]="selectedTab === 0" (click)="selectedTab = 0">Home</a></li>
-    <li><a [class.uk-button-text]="selectedTab !== 1" [class.uk-text-primary]="selectedTab === 1" (click)="selectedTab = 1">Projects</a></li>
-    <li><a [class.uk-button-text]="selectedTab !== 2" [class.uk-text-primary]="selectedTab === 2" (click)="selectedTab = 2">Accounts</a></li>
-    <li><a [class.uk-button-text]="selectedTab !== 3" [class.uk-text-primary]="selectedTab === 3" (click)="selectedTab = 3">Changelog</a></li>
+    <li><a [ngClass]="{'uk-button-text': this.router.url !== '/home', 'uk-text-primary': this.router.url === '/home' }" routerLink="/home">Home</a></li>
+    <li><a [ngClass]="{'uk-button-text': this.router.url !== '/projects', 'uk-text-primary': this.router.url === '/projects' }" routerLink="/projects">Projects</a></li>
+    <li><a [ngClass]="{'uk-button-text': this.router.url !== '/accounts', 'uk-text-primary': this.router.url === '/accounts' }" routerLink="/accounts">Accounts</a></li>
+    <li><a [ngClass]="{'uk-button-text': this.router.url !== '/changelog', 'uk-text-primary': this.router.url === '/changelog' }" routerLink="/changelog">Changelog</a></li>
   </ul>
 
-  <app-login *ngIf="selectedTab === 3"></app-login>
-
-  <app-home *ngIf="selectedTab === 0"></app-home>
-  <app-projects *ngIf="selectedTab === 1"></app-projects>
-  <app-accounts *ngIf="selectedTab === 2"></app-accounts>
-  <app-changelog *ngIf="selectedTab === 3"></app-changelog>
-
+  <router-outlet></router-outlet>
 </div>

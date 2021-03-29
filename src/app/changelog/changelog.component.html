@@ -1,3 +1,5 @@
+<app-login></app-login>
+
 <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-bottom" *ngIf="auth.loggedIn()" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'">
   <fieldset class="uk-fieldset">
     <input type="text" class="uk-input uk-width-5-6 uk-margin-bottom" placeholder="Release title (v0.0.0)" [attr.disabled]="!editable ? '' : null" [value]="editTitle" (keyup)="saveTitle($event)">

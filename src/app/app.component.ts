@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FirebaseAuthService} from './login/FirebaseAuth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import {FirebaseAuthService} from './login/FirebaseAuth.service';
 export class AppComponent {
   title = 'emilio-mini-me';
 
-  constructor(private auth: FirebaseAuthService) {
+  constructor(public router: Router) {
   }
 
   selectedTab = 0;
