@@ -1,0 +1,43 @@
+<div class="uk-card uk-card-default uk-card-hover uk-animation-fade">
+  <div class="uk-card-header">
+    <div class="uk-card-badge uk-label">{{camera.brand}}</div>
+    <h3 class="uk-card-title"><img alt="Sony Alpha 700" src="assets/ico/camera.svg"> {{camera.name}}</h3>
+  </div>
+  <div class="uk-card-body">
+    <h4 class="uk-heading-bullet">Specifications</h4>
+    <table class="uk-table uk-table-divider">
+      <thead>
+      <td class="uk-text-muted uk-text-nowrap uk-width-1-3">Body type</td>
+      <td>{{camera.body}}</td>
+      </thead>
+      <thead>
+      <td class="uk-text-muted uk-text-nowrap">Resolution</td>
+      <td>{{camera.resolution}}</td>
+      </thead>
+      <thead>
+      <td class="uk-text-muted uk-text-nowrap">Sensor</td>
+      <td>{{camera.sensor}}</td>
+      </thead>
+    </table>
+    <h4 class="uk-heading-bullet">Primary Lens ({{camera.lens}})</h4>
+
+    <table class="uk-table uk-table-divider">
+      <thead>
+      <td class="uk-text-muted uk-text-nowrap uk-width-1-3">Focal Length</td>
+      <td>{{camera.focal}}</td>
+      </thead>
+      <thead>
+      <td class="uk-text-muted uk-text-nowrap">Max Aperture</td>
+      <td>{{camera.maxap}}</td>
+      </thead>
+      <thead>
+      <td class="uk-text-muted uk-text-nowrap">Min Aperture</td>
+      <td>{{camera.minap}}</td>
+      </thead>
+      <thead>
+      <td class="uk-text-muted uk-text-nowrap">Filter Size</td>
+      <td>{{camera.filter}}</td>
+      </thead>
+    </table>
+  </div>
+</div>

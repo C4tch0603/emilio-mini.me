@@ -5,6 +5,7 @@ import {HomeComponent} from './home/home.component';
 import {ProjectsComponent} from './projects/projects.component';
 import {ChangelogComponent} from './changelog/changelog.component';
 import {PhotographyComponent} from './photography/photography.component';
+import {CameraComponent} from './camera/camera.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'accounts', component: AccountsComponent },
   { path: 'photography', component: PhotographyComponent },
+  { path: 'camera/:id', component: CameraComponent },
   { path: 'changelog', component: ChangelogComponent }
 ];
 

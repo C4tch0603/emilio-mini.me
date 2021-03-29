@@ -20,10 +20,6 @@ export class TitleImageComponent implements OnInit, OnChanges {
         this.src = 'assets/code.svg';
         this.alt = 'Home';
         break;
-      case '/projects':
-        this.src = 'assets/street.svg';
-        this.alt = 'Projects';
-        break;
       case '/accounts':
         this.src = 'assets/social.svg';
         this.alt = 'Accounts';
@@ -36,6 +32,9 @@ export class TitleImageComponent implements OnInit, OnChanges {
         this.src = 'assets/developer.svg';
         this.alt = 'Changelog';
         break;
+      default:
+        this.src = 'assets/street.svg';
+        this.alt = 'Projects';
     }
   }
 

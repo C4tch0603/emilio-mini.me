@@ -14,6 +14,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PhotographyComponent } from './photography/photography.component';
+import { CameraComponent } from './camera/camera.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PhotographyComponent } from './photography/photography.component';
     ProjectsComponent,
     LoginComponent,
     HomeComponent,
-    PhotographyComponent
+    PhotographyComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,
