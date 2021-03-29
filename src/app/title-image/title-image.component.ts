@@ -28,6 +28,10 @@ export class TitleImageComponent implements OnInit, OnChanges {
         this.src = 'assets/social.svg';
         this.alt = 'Accounts';
         break;
+      case '/photography':
+        this.src = 'assets/cam.svg';
+        this.alt = 'Photography';
+        break;
       case '/changelog':
         this.src = 'assets/developer.svg';
         this.alt = 'Changelog';

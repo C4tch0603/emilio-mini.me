@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PhotographyComponent } from './photography/photography.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AppRoutingModule } from './app-routing.module';
     AccountsComponent,
     ProjectsComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PhotographyComponent
   ],
   imports: [
     BrowserModule,
