@@ -9,6 +9,8 @@ import {FirebaseAuthService} from '../login/FirebaseAuth.service';
 })
 export class ChangelogComponent implements OnInit {
 
+  shortened: string[];
+
   editConfirm: string;
   editable: boolean;
   editTitle: string;
@@ -27,6 +29,7 @@ export class ChangelogComponent implements OnInit {
   constructor(private firestore: AngularFirestore, public auth: FirebaseAuthService) {
     this.initEdit();
     this.editable = true;
+    this.shortened = [];
 
     firestore.firestore.collection('changelog').orderBy('date', 'desc').onSnapshot(snapshot => {
       this.changelogs = [];
@@ -69,6 +72,15 @@ export class ChangelogComponent implements OnInit {
       })
       .catch((error) => {
         console.error('Error: ', error);
+      });
+
+    this.firestore.firestore.collection('short').doc(this.editTitle.split('.').join('-')).set({
+      link: 'https://emilio-mini.me/changelog#' + this.editTitle,
+      timestamp: new Date(),
+      persistent: true
+    }, { merge: true })
+      .then(() => {
+        this.shortened.push(this.editTitle.split('.').join('-'));
       });
   }
 
