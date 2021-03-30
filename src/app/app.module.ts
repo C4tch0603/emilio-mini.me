@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PhotographyComponent } from './photography/photography.component';
 import { CameraComponent } from './camera/camera.component';
+import { LinkShortenerComponent } from './link-shortener/link-shortener.component';
+import { LinkShortenerNewComponent } from './link-shortener-new/link-shortener-new.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CameraComponent } from './camera/camera.component';
     LoginComponent,
     HomeComponent,
     PhotographyComponent,
-    CameraComponent
+    CameraComponent,
+    LinkShortenerComponent,
+    LinkShortenerNewComponent
   ],
   imports: [
     BrowserModule,

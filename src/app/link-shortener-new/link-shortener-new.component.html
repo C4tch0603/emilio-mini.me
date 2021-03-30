@@ -1,0 +1,13 @@
+<div class="uk-alert-primary" [attr.uk-alert]="''" *ngFor="let short of shortened">
+  <a class="uk-alert-close" [attr.uk-close]="''"></a>
+  <p>Your shortened URL is: emilio-mini.me/s/{{short}}</p>
+</div>
+
+<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-bottom" [attr.uk-scrollspy]="'cls: uk-animation-fade; repeat: true'">
+  <fieldset class="uk-fieldset">
+    <div [attr.uk-grid]="''" class="uk-margin-right uk-margin-left">
+      <input type="text" class="uk-input uk-width-expand uk-padding-small" placeholder="Link" (keyup)="updateInput($event)">
+      <button type="button" class="uk-button uk-button-primary uk-width-auto" (click)="shorten()">GO</button>
+    </div>
+  </fieldset>
+</div>

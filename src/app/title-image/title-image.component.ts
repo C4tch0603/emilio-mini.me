@@ -15,26 +15,31 @@ export class TitleImageComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(): void {
-    switch (this.selected) {
-      case '/home':
-        this.src = 'assets/code.svg';
-        this.alt = 'Home';
-        break;
-      case '/accounts':
-        this.src = 'assets/social.svg';
-        this.alt = 'Accounts';
-        break;
-      case '/photography':
-        this.src = 'assets/cam.svg';
-        this.alt = 'Photography';
-        break;
-      case '/changelog':
-        this.src = 'assets/developer.svg';
-        this.alt = 'Changelog';
-        break;
-      default:
-        this.src = 'assets/street.svg';
-        this.alt = 'Projects';
+    if (this.selected.startsWith('/home#') || this.selected === '/home') {
+      this.src = 'code';
+      this.alt = 'Home';
+    }
+    else if (this.selected.startsWith('/accounts#') || this.selected === '/accounts') {
+      this.src = 'social';
+      this.alt = 'Accounts';
+    }
+    else if (this.selected.startsWith('/photography#') || this.selected === '/photography' ||
+      this.selected.startsWith('/camera#') || this.selected === '/camera') {
+      this.src = 'cam';
+      this.alt = 'Photography';
+    }
+    else if (this.selected.startsWith('/changelog#') || this.selected === '/changelog') {
+      this.src = 'developer';
+      this.alt = 'Changelog';
+    }
+    else if (this.selected.startsWith('/projects#') || this.selected === '/projects') {
+      this.src = 'street';
+      this.alt = 'Projects';
+    }
+    else if (this.selected.startsWith('/s#') || this.selected === '/s' ||
+      this.selected.startsWith('/s/')) {
+      this.src = 'link';
+      this.alt = 'URL shortener';
     }
   }
 
