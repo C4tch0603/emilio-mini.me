@@ -16,6 +16,8 @@ import { PhotographyComponent } from './photography/photography.component';
 import { CameraComponent } from './camera/camera.component';
 import { LinkShortenerComponent } from './link-shortener/link-shortener.component';
 import { LinkShortenerNewComponent } from './link-shortener-new/link-shortener-new.component';
+// tslint:disable-next-line:prefer-const
+let process: any;
 
 
 @NgModule({
@@ -35,19 +37,12 @@ import { LinkShortenerNewComponent } from './link-shortener-new/link-shortener-n
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp({
-      // @ts-ignore
       apiKey: process.env.FIREBASE_APIKEY,
-      // @ts-ignore
       authDomain: process.env.FIREBASE_AUTHDOMAIN,
-      // @ts-ignore
       projectId: process.env.FIREBASE_PROJECTID,
-      // @ts-ignore
       storageBucket: process.env.FIREBASE_STORAGEBUCKET,
-      // @ts-ignore
       messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
-      // @ts-ignore
       appId: process.env.FIREBASE_APPID,
-      // @ts-ignore
       measurementId: process.env.FIREBASE_MEASUREMENTID
     }),
     AngularFirestoreModule,
