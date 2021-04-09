@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {AngularFireModule} from '@angular/fire';
-import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
@@ -35,7 +34,22 @@ import { LinkShortenerNewComponent } from './link-shortener-new/link-shortener-n
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp({
+      // @ts-ignore
+      apiKey: process.env.FIREBASE_APIKEY,
+      // @ts-ignore
+      authDomain: process.env.FIREBASE_AUTHDOMAIN,
+      // @ts-ignore
+      projectId: process.env.FIREBASE_PROJECTID,
+      // @ts-ignore
+      storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+      // @ts-ignore
+      messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
+      // @ts-ignore
+      appId: process.env.FIREBASE_APPID,
+      // @ts-ignore
+      measurementId: process.env.FIREBASE_MEASUREMENTID
+    }),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AppRoutingModule
